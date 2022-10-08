@@ -1,4 +1,5 @@
-(defproject kafka-ventures "0.1.0-SNAPSHOT"
+(defproject kafka-ventures "0.1.0-SNAPSHOT" 
+  :aliases {"producer" ["run" "-m" "kafka-ventures.producer"]}
   :managed-dependencies [[commons-logging "1.2"]
                          [cheshire "5.11.0"]
                          [org.apache.kafka/kafka-clients "3.2.0"]
@@ -10,8 +11,7 @@
                  [org.clojure/clojure]
                  [org.slf4j/slf4j-log4j12]
                  [software.amazon.msk/aws-msk-iam-auth]]
-  :main ^:skip-aot kafka-ventures.core
   :resource-paths ["cfg"]
-  :target-path "target/%s"
+  :target-path "target/%s" 
   :profiles {:uberjar {:aot :all
                        :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})

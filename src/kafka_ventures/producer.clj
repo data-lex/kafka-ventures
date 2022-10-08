@@ -1,4 +1,4 @@
-(ns kafka-ventures.core
+(ns kafka-ventures.producer
   (:gen-class)
   (:require
    [cheshire.core :as json]
