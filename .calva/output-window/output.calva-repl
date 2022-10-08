@@ -1,0 +1,5 @@
+(require '[jackdaw.admin :as kafka])
+; Syntax error compiling at (jackdaw/admin.clj:1:1).
+; namespace 'jackdaw.data' not found
+clj꞉kafka-ventures.core꞉> 
+; nREPL Connection was closed
