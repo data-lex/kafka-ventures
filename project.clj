@@ -5,14 +5,14 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :managed-dependencies [[commons-logging "1.2"]
                          [cheshire "5.11.0"]
+                         [com.fzakaria/slf4j-timbre "0.3.21"]
                          [org.apache.kafka/kafka-clients "3.2.0"]
                          [org.clojure/clojure "1.11.1"]
-                         [org.slf4j/slf4j-api "2.0.3"]
                          [software.amazon.msk/aws-msk-iam-auth "1.1.4"]]
   :dependencies [[cheshire]
+                 [com.fzakaria/slf4j-timbre]
                  [org.apache.kafka/kafka-clients]
                  [org.clojure/clojure]
-                 [org.slf4j/slf4j-api]
                  [software.amazon.msk/aws-msk-iam-auth]]
   :main ^:skip-aot kafka-ventures.core
   :resource-paths ["cfg"]
