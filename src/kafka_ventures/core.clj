@@ -1,8 +1,8 @@
-(ns kafka-ventures.producer
+(ns kafka-ventures.core
   (:gen-class)
   (:require
-   [cheshire.core :as json]
-   [clojure.java.io :as io])
+   [clojure.data.json :as json]
+   [clojure.java.io :as jio])
   (:import
    (java.util Properties)
    (org.apache.kafka.clients.admin AdminClient NewTopic)
@@ -10,7 +10,7 @@
    (org.apache.kafka.common.errors TopicExistsException)))
 
 (defn- build-properties [config-fname]
-  (with-open [config (io/reader config-fname)]
+  (with-open [config (jio/reader config-fname)]
     (doto (Properties.)
       (.putAll
        {ProducerConfig/KEY_SERIALIZER_CLASS_CONFIG   "org.apache.kafka.common.serialization.StringSerializer"
@@ -34,7 +34,7 @@
                                 (.partition %)
                                 (.offset %))
         create-msg     #(let [k "alice"
-                              v (json/generate-string {:count %})]
+                              v (json/write-str {:count %})]
                           (printf "Producing record: %s\t%s\n" k v)
                           (ProducerRecord. topic k v))]
     (with-open [producer (KafkaProducer. props)]
